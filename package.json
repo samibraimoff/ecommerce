@@ -1,0 +1,23 @@
+{
+  "name": "ecommerce-mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samibraimoff/ecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samibraimoff/ecommerce/issues"
+  },
+  "homepage": "https://github.com/samibraimoff/ecommerce#readme",
+  "devDependencies": {
+    "prettier": "^3.1.0"
+  }
+}
