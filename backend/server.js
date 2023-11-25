@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 4000;
 ConnectDB();
 
 const app = express();
+// body parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
