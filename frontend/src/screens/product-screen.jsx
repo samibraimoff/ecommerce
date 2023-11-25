@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Rating from "../components/rating";
-import { useGetProductDetailsQuery } from "../slices/product-api-slice";
+import { useGetProductDetailsQuery } from "../slices/product-slice";
 import Loader from "../components/loader";
 import Message from "../components/message";
 
