@@ -1,5 +1,9 @@
 import User from "../models/user-model.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 // @desc    Auth user and get token
 // @route   POST api/users/login
@@ -10,7 +14,25 @@ const loginUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
-    return res.status(200).json({
+    const token = jwt.sign(
+      {
+        userId: user._id,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "30d",
+      },
+    );
+
+    // set JWT http only cookie
+    res.cookie("jwt", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== "development",
+      sameSite: "strict",
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+    });
+
+    res.status(200).json({
       _id: user._id,
       name: user.name,
       email: user.email,
