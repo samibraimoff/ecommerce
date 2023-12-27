@@ -12,7 +12,7 @@ import {
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Rating from "../components/rating";
-import { useGetProductDetailsQuery } from "../slices/product-slice";
+import { useGetProductDetailsQuery } from "../slices/product-api-slice";
 import Loader from "../components/loader";
 import Message from "../components/message";
 import { useState } from "react";
