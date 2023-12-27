@@ -17,16 +17,20 @@ import { addToCart, removeFromCart } from "../slices/cart-slice";
 const CartScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  const { cartItems } = useSelector((state) => state.cart);
 
-  const addToCartHandler = async (product, quantity) => {
+  const addToCartHandler = (product, quantity) => {
     dispatch(addToCart({ ...product, quantity }));
   };
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   };
+
+  const checkoutHandler = () => {
+    navigate("/login?redirect=/shipping");
+  };
+
   return (
     <Row>
       <Col md={8}>
@@ -94,9 +98,7 @@ const CartScreen = () => {
             <ListGroup.Item>
               <Button
                 type="button"
-                onClick={() => {
-                  navigate("/login?redirect=/shipping");
-                }}
+                onClick={checkoutHandler}
                 disabled={cartItems.length === 0}
               >
                 Proceed To Checkout

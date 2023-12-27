@@ -24,12 +24,12 @@ const loginUser = asyncHandler(async (req, res) => {
       },
     );
 
-    // set JWT http only cookie
+    // set JWT as HTTP-Only cookie
     res.cookie("jwt", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV !== "development",
       sameSite: "strict",
-      maxAge: 30 * 24 * 60 * 60 * 1000,
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
     });
 
     res.status(200).json({
@@ -90,14 +90,14 @@ const getUserById = asyncHandler(async (req, res) => {
 // @route   DELETE api/users/:id
 // @access  Private / Admin
 const deleteUserById = asyncHandler(async (req, res) => {
-  res.send("delete user");
+  res.send("delete user by id");
 });
 
 // @desc    Update user
 // @route   PUT api/users/:id
 // @access  Private / Admin
 const updateUserById = asyncHandler(async (req, res) => {
-  res.send("update user");
+  res.send("update user by id");
 });
 
 export {

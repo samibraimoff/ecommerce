@@ -27,6 +27,7 @@ const UserSchema = new mongoose.Schema(
   },
 );
 
+// encrypting plain password came from FE
 UserSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
