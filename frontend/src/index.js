@@ -14,6 +14,7 @@ import HomeScreen from "./screens/home-screen";
 import ProductScreen from "./screens/product-screen";
 import CartScreen from "./screens/cart-screen";
 import LoginScreen from "./screens/login-screen";
+import RegisterScreen from "./screens/register-screen";
 import CheckoutScreen from "./screens/checkout-screen";
 import store from "./store";
 import { Provider } from "react-redux";
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="/cart" element={<CartScreen />} />
       <Route path="/checkout" element={<CheckoutScreen />} />
       <Route path="/login" element={<LoginScreen />} />
+      <Route path="/register" element={<RegisterScreen />} />
     </Route>,
   ),
 );
