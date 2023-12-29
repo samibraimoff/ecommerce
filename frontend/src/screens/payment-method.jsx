@@ -30,7 +30,7 @@ const PaymentMethod = () => {
       <h1>Payment Method</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="paymentMethod" className="my-4">
-          <Form.Label>Select Method</Form.Label>
+          <Form.Label as="legend">Select Method</Form.Label>
           <Col>
             <Form.Check
               type="radio"
