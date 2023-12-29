@@ -10,6 +10,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./assets/bootstrap.custom.css";
 import "./assets/index.css";
+import PrivateRoute from "./components/private-route";
 import HomeScreen from "./screens/home-screen";
 import ProductScreen from "./screens/product-screen";
 import CartScreen from "./screens/cart-screen";
@@ -23,13 +24,20 @@ import { Provider } from "react-redux";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
+      {/* public routes */}
       <Route index={true} path="/" element={<HomeScreen />} />
       <Route path="/products/:id" element={<ProductScreen />} />
       <Route path="/cart" element={<CartScreen />} />
       <Route path="/checkout" element={<CheckoutScreen />} />
       <Route path="/login" element={<LoginScreen />} />
       <Route path="/register" element={<RegisterScreen />} />
-      <Route path="/shipping" element={<ShippingScreen />} />
+
+      {/* private routes */}
+      <Route path="" element={<PrivateRoute />}>
+        <Route path="/shipping" element={<ShippingScreen />} />
+      </Route>
+
+      {/* admin routes */}
     </Route>,
   ),
 );
