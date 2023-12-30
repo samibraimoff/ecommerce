@@ -33,7 +33,6 @@ const LoginScreen = () => {
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
     } catch (error) {
-      console.error(error);
       toast.error(error?.data?.message || error?.error);
     }
   };
